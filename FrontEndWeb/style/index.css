@@ -1,0 +1,617 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #eee;
+}
+
+#root {
+    max-width: 1440px;
+    background: white;
+    height: 100vh;
+    color: #3d3d3d;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin-top: 0;
+    padding-top: 2.5%;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+h3, p {
+    color: #696969;
+    font-weight: 400;   
+    margin: 0;
+    padding-bottom: 2.5%;
+}
+
+h2 {
+    margin-top: 80px;
+}
+
+/* Menu de navegação de auxílio ao usuário da tela Index*/
+.tutorContainer{
+    text-align: center;
+    margin: 0 10%;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.tutorTitle{
+    color: #4e4e4e;
+    font-size: 2.5rem;    
+    font-weight: 200;
+}
+
+#navTutor{
+    white-space: nowrap !important;
+    overflow-x: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    scroll-behavior: smooth;
+}
+
+#navTutor li{
+    cursor: pointer;
+}
+
+#navTutor li:hover {
+    opacity: 0.7;
+}
+
+.navigationButton {
+    position: absolute;
+    top: 48%;
+    z-index: 1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.navigationButton:hover i{
+    color: #00a335;
+}
+
+.navigationButton i {
+    color: #666666;
+    transition: .3s;
+}
+
+#backButton {
+    left: 0;
+    transform: translateX(-50%);
+}
+
+#nextButton {
+    right: 0;
+    transform: translateX(50%);
+    display: flex;
+}
+
+.tutorContainer li img{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.tutorContainer li p{
+    margin: 0;
+    text-align: center;
+    max-width: 200px;
+    white-space: wrap;
+}
+
+.tutorContainer li{
+    list-style-type: none;
+    display: inline-block;
+}
+
+.tutorContainer li:not(:last-child){
+    margin-right: 15px;
+}
+
+#backButton{
+    display: none;
+    transition: .3s;
+}
+
+/* Botões de redirecionamento da tela Index*/
+.buttons{
+    margin-top: 5%;
+}
+
+.button {
+    border-radius: 100px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    padding-top: 0.86rem;
+    padding-bottom: 0.86rem;
+    padding-right: 20px;
+    padding-left: 30px;
+    font-size: .9375rem;
+    font-weight: 600;
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 1.1em;
+    outline: none;
+    background: #00a335;
+    border: none;
+    color: white;
+    min-width: 150px;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: .5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.button:hover{
+    background-color: #008b2d;
+}
+
+.button:hover .iconArrow{
+    opacity: 100%;
+    
+}
+
+.button:not(:last-child){
+    margin-right: 20px;
+}
+
+.iconArrow {
+    opacity: 0;
+    display: inline-block;
+    transition: .5s;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+/* Rodapé */
+.footer{
+    position: relative;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background: #00A335;
+    width: 100%;
+    max-width: 1440px;
+    padding: 50px 0;
+}
+
+.footerElement:not(:last-child){
+    margin-right: 20px;
+}
+
+.footerTitle{
+    font-size: 1.375rem;
+    font-weight: 300;
+    margin: 0;
+    margin-right: 80px;
+    padding: 0;
+    color: white;
+}
+
+.footerElement h3{
+    font-size: 1rem;
+    margin: 0;
+    margin-left: 17px;
+    padding: 0;
+    height: auto;
+    color: white;
+    line-height: 1.5rem;
+    flex: 1 1 0px;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+.footerElement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 287px;
+    text-align: left;
+    text-decoration: none;
+    padding-right: 10px;
+    transition: .3s;
+}
+
+.footerElement:hover{
+    background: #008b2d;
+    border-radius: 100px;
+}
+
+/* Cabeçalho */
+.header{
+    width: 100%;
+    height: auto;
+    background-image: url("../images/indexWallpapper.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.headerPages{
+    width: 100%;
+    height: auto;
+    background-image: url("../images/pagesWallpapper.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header h3, h1{
+    color: white;
+}
+
+.titlePages{
+    padding-top: 1.5%;
+    font-weight: 300;
+}
+
+.tutorTitleMobile{
+    display: none;
+}
+
+.subTitlePages{
+    color: white;
+    padding-bottom: 1.5%;
+    font-weight: 300;
+}
+
+
+/*Tela PersonalRequests*/
+.requestFields{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.requestFields .button{
+    width: 30%;
+}
+
+.inputPersonalRequests{
+    width: 41.6%;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 8px 10px 4px 10px;
+    color: #2b2b2b;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+}
+
+.inputPersonalRequests:focus{
+    outline: none;
+}
+
+.inputTitle{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 14px;
+    width: 42.6%;
+}
+
+.inputTitle:first-child{
+    margin-top: 50px;
+}
+
+#method{
+    margin-bottom: 70px;
+}
+
+.requestFields .button:disabled{
+    opacity: 50%;
+}
+
+.requestFields .button:disabled:hover{
+    background: #00a335;
+    cursor: not-allowed;
+}
+
+.requestFields .button:disabled:hover .iconArrow{
+    opacity: 0;
+}
+#methodPR{
+    margin-bottom: 30px;
+}
+
+/* Tela de reset */
+#ipResetTitle, #ipInfoTitle{
+    margin-top: 165px;
+}
+
+#resetButton, #infoButton{
+    margin-top: 30px;
+}
+
+/* Tela de info */
+
+#infoButton{
+    margin-right: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#preview{
+    width: 50%;
+    margin-top: 30px;
+}
+
+#preview:disabled{
+    visibility: hidden;
+}
+.requestFields #info {
+    justify-content: center;
+}
+
+#info {
+    display: none;
+    position: fixed;
+    align-items: center;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    min-width: 20%;
+    min-height: 250px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    padding: 30px;
+    word-wrap: break-word;
+}
+ 
+#titleTutorial {
+    margin-bottom: 10px;
+}
+
+#info h3 {
+    font-size: 25px;
+    max-width: 100%;
+}
+#info p {
+    font-size: 23px;
+    max-width: 100%;
+    font-weight: 300;
+}
+#tutorial {
+    text-align: left;
+}
+
+.closeButton {
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    color: gray;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+/* Index tutorial*/
+#tutor {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    min-width: 800px;
+    min-height: 400px;
+}
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#resetButton {
+    margin-bottom: 150px;
+}
+#infoButton {
+    margin-bottom: 160px;
+}
+.nobreak{
+    white-space: nowrap;
+}
+.center {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+/* Responsividade */
+@media screen and (max-width: 1055px){
+    #navTutor li p {
+        font-size: 15px;
+    }
+    #navTutor li img {
+        width: 100%;
+        height: auto;
+    }
+    #navTutor li{
+        min-width: 25%;
+    }
+    .button:not(:last-child){
+        margin-right: 0;
+    }
+    .button {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .tutorContainer h2{
+        font-size: 30px;
+    }
+    .header h1 {
+        font-size: 25px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .header h3 {
+        font-size: 18px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .tutorTitle {
+        font-size: 30px;
+    }
+    h2{
+        margin-top: 40px;
+    }
+    .buttons{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin: 40px 40px;
+    }
+    #root {
+        overflow-x: hidden;
+    }
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    .footerElement svg {
+        width: 50px;
+    }
+    .footerElement h3 {
+        font-size: 12px;
+    }
+    .footerTitle {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+    .requestFields .button {
+        width: 40%;
+    }
+    #resetButton {
+        margin-bottom: 150px;
+    }
+    #infoButton {
+        margin-bottom: 160px;
+    }
+    #preview {
+        width: 80%;
+    }
+    
+}
+@media screen and (max-width: 543px){
+    #navTutor li p {
+        font-size: 12px;
+    }
+    .footer {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+    .footerTitle {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    .footerElement {
+        width: 30%;
+        display: block;
+        padding: 5px;
+        text-align: center;
+        align-self: flex-start;
+    }
+    .footerElement h3 {
+        text-align: center;
+        margin: 0;
+    }
+    .footerElement:not(:last-child) {
+        margin-right: 0;
+    }
+    .inputPersonalRequests{
+        width: 80%;
+    }
+    .inputTitle {
+        text-align: center;
+    }
+    .requestFields .button {
+        width: 60%;
+    }
+    .titlePages {
+        font-size: 20px;
+    }
+    .subTitlePages {
+        font-size: 15px;
+    }
+    #resetButton {
+        margin-bottom: 120px;
+    }
+    #infoButton {
+        margin-bottom: 130px;
+    }
+    .tutorContainer{
+        margin-bottom: 70px;
+    }
+    #info {
+        min-width: 80%;
+        max-width: 90%;
+        padding: 15px;
+    }
+    #info h3 {
+        font-size: 20px !important;
+    }
+    #info p {
+        font-size: 18px !important;
+    }
+    #preview {
+        width: 90%;
+    }
+    .footerElement:hover{
+        border-radius: 0;
+        background: #00A335;
+        
+    }
+}

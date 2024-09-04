@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/index.css">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/chevron-left.css' rel='stylesheet'>    
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/chevron-right.css' rel='stylesheet'>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <script src="../js/theme.js"></script>
+    <title>Consultar informações do dispositivo</title>
+</head>
+<body>
+    <div id="root">
+        <div class="headerPages">
+            <h1 class="titlePages">Consulte dados do seu dispositivo</h1>
+            <h3 class="subTitlePages">Verifique informações gerais do seu dispositivo a partir de alguns dados</h3>
+        </div>
+        <div class="requestFields">
+            <p class="inputTitle" id="ipInfoTitle">1.IP do dispositivo</p>
+            <input type="text" class="inputPersonalRequests" id="ipInfo" oninput="checkFieldsInfo()">
+
+            <p class="inputTitle">2.Senha</p>
+            <input type="text" class="inputPersonalRequests" id="passwordInfo" oninput="checkFieldsInfo()">
+            <button class="button" id="infoButton" onclick="getInfo()" disabled>
+                Coletar Informações
+                <p class="iconArrow">❯</p>
+            </button>
+            <div id="overlay"></div>
+            <div id="info">
+                <h3 id="formTitle"></h3>
+                <p id="lblType"></p>
+                <p id="lblNS"></p>
+                <p id="lblFirm"></p>
+
+                <button class="button" id="preview" onclick="preview()" disabled>
+                    Visualizar prévia da câmera
+                    <p class="iconArrow">❯</p>
+                </button>
+                <button class="closeButton" onclick="closeModal()">X</button>
+            </div>
+        </div>
+        <div class="footer">
+            <h2 class="footerTitle">Você precisa de ajuda?</h2>
+            <a href="https://www.intelbras.com/pt-br/onde-encontrar/assistencia-tecnica/" class="footerElement">
+                <svg width="59px" height="59px" viewBox="0 0 59 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs></defs>
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g transform="translate(-443.000000, -20.000000)" stroke="#00A335">
+                            <g id="assistencia___BHLaQwYr">
+                                <g transform="translate(444.000000, 21.000000)">
+                                    <g id="Icon_tools_outline___BHLaQwYr">
+                                        <circle stroke-width="1.1" fill="#FFFFFF" cx="28.5" cy="28.5" r="28.5"></circle>
+                                        <g transform="translate(17.000000, 16.000000)" stroke-linecap="round" stroke-linejoin="round">
+                                            <g id="icon___BHLaQwYr">
+                                                <path d="M19.7392998,7.88135414 L15.7919314,7.88135414 L15.7919314,3.93398571 L19.331405,0.39451203 C17.5025224,-0.296087619 15.4537392,-0.0711615338 13.8182471,0.999775188 C12.8846978,1.56092307 12.1030792,2.3425416 11.5419314,3.27609098 C10.4534063,4.9248232 10.2279863,6.99770729 10.9366682,8.84188045 L0.818247144,18.9076699 C0.294367449,19.4308973 5.84327908e-16,20.1409375 0,20.8813541 C-5.84327908e-16,21.6217708 0.294367449,22.331811 0.818247144,22.8550383 L0.818247144,22.8550383 C1.34147449,23.378918 2.05151472,23.6732855 2.79193135,23.6732855 C3.53234799,23.6732855 4.24238822,23.378918 4.76561557,22.8550383 L14.8840366,12.7366173 C16.7129193,13.4272169 18.7617025,13.2022909 20.3971945,12.1313541 C21.3307439,11.5702063 22.1123624,10.7885877 22.6735103,9.85503835 C23.7620353,8.20630612 23.9874553,6.13342204 23.2787735,4.28924887 L19.7392998,7.88135414 Z" stroke-width="1.1"></path>
+                                                <path d="M17.2631579,13 L23.0263158,18.7631579 C23.5501955,19.2863852 23.8445629,19.9964255 23.8445629,20.7368421 C23.8445629,21.4772587 23.5501955,22.187299 23.0263158,22.7105263 L23.0263158,22.7105263 C22.5030884,23.234406 21.7930482,23.5287735 21.0526316,23.5287735 C20.3122149,23.5287735 19.6021747,23.234406 19.0789474,22.7105263 L12,15.6315789" id="Shape___BHLaQwYr"></path>
+                                                <polyline points="8.22368421 11.1973684 2.30263158 5.27631579 1.31578947 6.26315789 0 2.31578947 1.31578947 1 5.26315789 2.31578947 4.27631579 3.30263158 10.1973684 9.22368421"></polyline>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <h3>Encontre uma assistência técnica</h3>
+            </a>
+            <a href="https://www.intelbras.com/pt-br/ajuda-download/faq" class="footerElement">
+                <svg width="59px" height="59px" viewBox="0 0 59 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs></defs>
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g transform="translate(-120.000000, -775.000000)">
+                            <g transform="translate(0.000000, 124.000000)">
+                                <g transform="translate(120.000000, 333.000000)">
+                                    <g transform="translate(1.000000, 319.000000)">
+                                        <g id="Group-5___a0d8PMBI">
+                                            <g id="tutorial_icon___a0d8PMBI">
+                                                <circle stroke-width="1.1" fill="#FFFFFF" cx="28.5" cy="28.5" r="28.5"></circle>
+                                                <path d="M39.7495135,36.4544118 L31.8735405,36.4544118 C31.8976216,37.3625 32.0698378,38.8147059 32.712,39.4963235 C32.946973,39.7470588 33.2177027,39.8639706 33.5621351,39.8639706 C33.8737297,39.8639706 34.1247568,40.1176471 34.1247568,40.4316176 C34.1247568,40.7463235 33.8737297,41 33.5621351,41 L23.4378649,41 C23.127,41 22.8752432,40.7463235 22.8752432,40.4316176 C22.8752432,40.1176471 23.127,39.8639706 23.4378649,39.8639706 C23.7815676,39.8639706 24.0522973,39.7470588 24.2887297,39.4963235 C24.9294324,38.8147059 25.1023784,37.3625 25.1264595,36.4544118 L17.2497568,36.4544118 C16.0084865,36.4544118 15,35.4352941 15,34.1823529 L15,18.2727941 C15,17.0191176 16.0084865,16 17.2497568,16 L39.7495135,16 C40.9907838,16 42,17.0191176 42,18.2727941 L42,34.1823529 C42,35.4352941 40.9907838,36.4544118 39.7495135,36.4544118 Z M31.5728919,39.8632353 C30.8935135,38.8117647 30.7621622,37.2970588 30.7453784,36.4544118 L26.2546216,36.4544118 C26.2378378,37.2970588 26.1064865,38.8117647 25.4271081,39.8632353 L31.5728919,39.8632353 Z M40.8747568,18.2727941 C40.8747568,17.6463235 40.3697838,17.1360294 39.7495135,17.1360294 L17.2497568,17.1360294 C16.6294865,17.1360294 16.1252432,17.6463235 16.1252432,18.2727941 L16.1252432,30.7727941 L30.1046757,30.7727941 L30.0499459,30.7588235 C29.7981892,30.6948529 29.6215946,30.4661765 29.6215946,30.2044118 L29.6215946,26.7955882 C29.6215946,26.5338235 29.7981892,26.3051471 30.0499459,26.2411765 L31.848,25.7875 C31.8757297,25.7161765 31.9034595,25.6463235 31.9333784,25.5764706 L30.9803514,23.9727941 C30.8475405,23.7485294 30.8825676,23.4602941 31.0657297,23.275 L33.4526757,20.8639706 C33.6343784,20.6794118 33.918973,20.6426471 34.143,20.7779412 L35.7301622,21.7404412 C35.7994865,21.7110294 35.8688108,21.6823529 35.9395946,21.6544118 L36.3891081,19.8389706 C36.4518649,19.5845588 36.6780811,19.4058824 36.9371351,19.4058824 L40.3121351,19.4058824 C40.5719189,19.4058824 40.7981351,19.5845588 40.8608919,19.8389706 L40.8747568,19.8941176 L40.8747568,18.2727941 Z M40.8747568,22.7198529 C40.7988649,22.6897059 40.7266216,22.6536765 40.6485405,22.6264706 C40.4682973,22.5639706 40.3318378,22.4125 40.2858649,22.2257353 L39.8706486,20.5492647 L37.3793514,20.5492647 L36.9641351,22.2257353 C36.9181622,22.4125 36.780973,22.5632353 36.6014595,22.6264706 C36.3737838,22.7058824 36.1541351,22.7941176 35.9403243,22.8985294 C35.7695676,22.9830882 35.5681622,22.9735294 35.4025135,22.8742647 L33.9394054,21.9875 L32.1771081,23.7676471 L33.0557027,25.2448529 C33.1534865,25.4102941 33.1622432,25.6147059 33.0797838,25.7882353 C32.9754324,26.0044118 32.8885946,26.2264706 32.8097838,26.4558824 C32.7477568,26.6382353 32.5981622,26.7757353 32.4135405,26.8227941 L30.7534054,27.2419118 L30.7534054,29.7588235 L32.4135405,30.1772059 C32.5981622,30.2242647 32.7477568,30.3625 32.8097838,30.5441176 C32.8375135,30.6227941 32.8718108,30.6963235 32.9031892,30.7727941 L34.7479459,30.7727941 C34.350973,30.0867647 34.1211081,29.3147059 34.1211081,28.5 C34.1211081,25.9919118 36.1417297,23.9514706 38.625,23.9514706 C39.4313514,23.9514706 40.1961081,24.1830882 40.8747568,24.5845588 L40.8747568,22.7198529 Z M40.8747568,25.9875 C40.253027,25.4176471 39.4671081,25.0941176 38.625,25.0941176 C36.7656486,25.0941176 35.2529189,26.6220588 35.2529189,28.5 C35.2529189,29.35 35.5732703,30.1441176 36.1380811,30.7727941 L40.8747568,30.7727941 L40.8747568,25.9875 Z M40.8747568,31.9088235 L16.1252432,31.9088235 L16.1252432,34.1823529 C16.1252432,34.8080882 16.6302162,35.3183824 17.2497568,35.3183824 L39.7495135,35.3183824 C40.3705135,35.3183824 40.8747568,34.8080882 40.8747568,34.1823529 L40.8747568,31.9088235 Z M28.5,34.75 C27.879,34.75 27.3747568,34.2411765 27.3747568,33.6139706 C27.3747568,32.9860294 27.879,32.4772059 28.5,32.4772059 C29.121,32.4772059 29.6245135,32.9860294 29.6245135,33.6139706 C29.6245135,34.2411765 29.121,34.75 28.5,34.75 Z" fill="#00A335"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <h3>Downloads, configurações e vídeo tutoriais</h3>
+            </a>
+            <a href="https://www.intelbras.com/pt-br/contato/atendimento/" class="footerElement">
+                <svg width="59px" height="59px" viewBox="0 0 59 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs></defs>
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g transform="translate(-120.000000, -565.000000)">
+                            <g transform="translate(0.000000, 124.000000)">
+                                <g transform="translate(120.000000, 333.000000)">
+                                    <g transform="translate(1.000000, 109.000000)">
+                                        <g id="Group-3___I4O0BaLN">
+                                            <g id="Icon_phone_outline___I4O0BaLN">
+                                                <g id="sac___I4O0BaLN">
+                                                    <circle stroke-width="1.1" fill="#FFFFFF" cx="28.5" cy="28.5" r="28.5"></circle>
+                                                    <path d="M40.0741818,41.1922443 C27.9025455,41.1922443 18,31.210552 18,18.9410679 C18,17.8708416 18.8632727,17 19.9258182,17 L24.3330909,17 C25.3956364,17 26.2596364,17.8708416 26.2596364,18.9410679 C26.2596364,20.4203258 26.4894545,21.8746606 26.9425455,23.2622896 C27.1643636,23.9681991 26.9818182,24.7239548 26.4676364,25.2422081 L24.4887273,27.8928507 C26.1367273,31.023629 28.0654545,32.9661629 31.1941818,34.6499367 L33.8923636,32.5967149 C34.3389091,32.1393032 35.112,31.9567783 35.7941818,32.1920814 C37.1614545,32.6480271 38.6043636,32.8796652 40.0741818,32.8796652 C41.1367273,32.8796652 42,33.7505068 42,34.820733 L42,39.2511765 C42,40.3214027 41.1367273,41.1922443 40.0741818,41.1922443 Z M40.6669091,34.820733 C40.6669091,34.4916018 40.4014545,34.2233122 40.0741818,34.2233122 C38.4625455,34.2233122 36.8792727,33.9689502 35.3701818,33.4660905 C35.16,33.3957195 34.9258182,33.4492308 34.7658182,33.6082986 L31.6610909,35.9789231 C31.4552727,36.1350588 31.1810909,36.1592489 30.9556364,36.0404977 C27.2530909,34.1287511 24.9803636,31.8372941 23.1098182,28.131819 C22.9934545,27.9023801 23.0167273,27.6267602 23.1709091,27.4222443 L25.464,24.3625701 C25.688,24.128 25.7432727,23.897095 25.6741818,23.6757195 C25.1781818,22.15981 24.9258182,20.564 24.9258182,18.9410679 C24.9258182,18.6119367 24.6603636,18.3436471 24.3330909,18.3436471 L19.9258182,18.3436471 C19.5992727,18.3436471 19.3338182,18.6119367 19.3338182,18.9410679 C19.3338182,30.469457 28.6378182,39.8485973 40.0741818,39.8485973 C40.4014545,39.8485973 40.6669091,39.5810407 40.6669091,39.2511765 L40.6669091,34.820733 Z M39.9789091,27.7521086 L33.6094545,27.7521086 L31.1381818,30.2436833 C31.0101818,30.3719638 30.84,30.4401357 30.6669091,30.4401357 C30.5810909,30.4401357 30.4930909,30.424009 30.4109091,30.3888235 C30.1629091,30.2854661 30,30.0399005 30,29.7679457 L30,20.380009 C30,19.268733 30.8974545,18.3641719 32,18.3641719 L39.9789091,18.3641719 C41.0821818,18.3641719 41.9789091,19.268733 41.9789091,20.380009 L41.9789091,25.7362715 C41.9789091,26.8475475 41.0821818,27.7521086 39.9789091,27.7521086 Z M40.6458182,20.380009 C40.6458182,20.0098281 40.3469091,19.708552 39.9789091,19.708552 L32,19.708552 C31.6327273,19.708552 31.3330909,20.0098281 31.3330909,20.380009 L31.3330909,28.1457466 L32.8618182,26.604914 C32.9869091,26.4788326 33.1563636,26.4077285 33.3338182,26.4077285 L39.9789091,26.4077285 C40.3469091,26.4077285 40.6458182,26.1071855 40.6458182,25.7362715 L40.6458182,20.380009 Z" stroke="#FFFFFF" stroke-width="0.2" fill="#00A335"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <h3>Entre em contato com a central de suporte</h3>
+            </a>
+        </div>
+    </div>
+    <script>
+        async function getInfo() {
+            var ip = document.getElementById('ipInfo').value;
+            var password = document.getElementById('passwordInfo').value;
+            const user = "admin";
+            const port = "80";
+            const method = "GET";
+
+            var lblNS = document.getElementById('lblNS');
+            var lblType = document.getElementById('lblType');
+            var lblFirm = document.getElementById('lblFirm');
+            var formTitle = document.getElementById('formTitle');
+            try {
+                const [typeResult, firmVersionResult, snResult] = await Promise.all([
+                    makeRequest("/cgi-bin/magicBox.cgi?action=getDeviceType"),
+                    makeRequest("/cgi-bin/magicBox.cgi?action=getSoftwareVersion"),
+                    makeRequest("/cgi-bin/magicBox.cgi?action=getSerialNo")
+                ]);
+
+                const type = extractValue(typeResult, /type=([^\s]+)/);
+                const firmVersion = extractValue(firmVersionResult, /build:([\d-]+)/);
+                const SN = extractValue(snResult, /sn=([^\s]+)/);
+                if (type !== "N/A") {
+                    openModal()
+                    formTitle.innerHTML = "Informações do dispositivo:"
+                    lblNS.innerHTML = "NS: " + SN;
+                    lblFirm.innerHTML = "Versão de firmware: " + firmVersion;
+                    lblType.innerHTML = "Modelo do dispositivo: " + type;
+                    document.getElementById('preview').disabled = false;
+                } else {
+                    openModal()
+                    formTitle.innerHTML = "Falha na autenticação. Verifique os dados e tente novamente.";
+                    lblNS.innerHTML = "";
+                    lblFirm.innerHTML = "";
+                    lblType.innerHTML = "";
+                    document.getElementById('preview').disabled = true;
+                }
+
+            } catch (error) {
+                console.error("Erro ao obter informações: " + error.message);
+            }
+
+            async function makeRequest(parameters) {
+                const body = JSON.stringify({ ip, user, password, port, method, parameters });
+                const response = await fetch('http://localhost:8080/request/makeRequest', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: body,
+                });
+
+                if (!response.ok) {
+                    throw new Error('Erro na requisição');
+                }
+
+                return response.text();
+            }
+
+            function extractValue(input, regex) {
+                const match = input.match(regex);
+                return match ? match[1] : "N/A";
+            }
+        }
+
+        function preview() {
+            var ip = document.getElementById('ipInfo').value;
+            var password = document.getElementById('passwordInfo').value;
+            var openPreview = `http://admin:${password}@${ip}:80/cgi-bin/snapshot.cgi?channel=1&type=0`;
+            window.open(openPreview, '_blank');
+        }
+    </script>
+</body>
+</html>
